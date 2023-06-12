@@ -26,22 +26,37 @@ namespace BookingCom.model
     public class Room
     {
         [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
 
-        [BsonElement("Name")]
+        [BsonElement("name")]
         public string Name { get; set; }
 
-        [BsonElement("Type")]
+        [BsonElement("type")]
         public string Type { get; set; }
 
-        [BsonElement("Description")]
+        [BsonElement("description")]
         public string Description { get; set; }
 
-        [BsonElement("Amenities")]
+        [BsonElement("amenities")]
         public List<string> Amenities { get; set; }
 
-        [BsonElement("Price")]
+        [BsonElement("price")]
         public decimal Price { get; set; }
+
+        public Room()
+        {
+            // Parameterless constructor for deserialization
+        }
+
+        public Room(string name, string type, string description, List<string> amenities, decimal price)
+        {
+            Name = name;
+            Type = type;
+            Description = description;
+            Amenities = amenities;
+            Price = price;
+        }
     }
 
     public class Booking
