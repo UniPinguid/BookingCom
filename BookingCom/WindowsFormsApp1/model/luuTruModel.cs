@@ -13,17 +13,17 @@ namespace BookingCom.model
         [BsonId]
         public ObjectId Id { get; set; }
 
-        [BsonElement("Name")]
+        [BsonElement("name")]
         public string Name { get; set; }
 
-        [BsonElement("Email")]
+        [BsonElement("email")]
         public string Email { get; set; }
 
-        [BsonElement("Phone")]
+        [BsonElement("phone")]
         public string Phone { get; set; }
     }
 
-    public class Room
+    public class Stay
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -32,11 +32,35 @@ namespace BookingCom.model
         [BsonElement("name")]
         public string Name { get; set; }
 
-        [BsonElement("type")]
-        public string Type { get; set; }
+        [BsonElement("location")]
+        public string Location { get; set; }
 
         [BsonElement("description")]
         public string Description { get; set; }
+
+        [BsonElement("score")]
+        public decimal Score { get; set; }
+
+        [BsonElement("cheap_price")]
+        public decimal CheapPrice { get; set; }
+    }
+
+    public class Room
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("_id")]
+        public ObjectId Id { get; set; }
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("stayId")]
+        public ObjectId StayId { get; set; }
+
+        [BsonElement("name")]
+        public string Name { get; set; }
+
+        [BsonElement("type")]
+        public string Type { get; set; }
 
         [BsonElement("amenities")]
         public List<string> Amenities { get; set; }
@@ -49,11 +73,10 @@ namespace BookingCom.model
             // Parameterless constructor for deserialization
         }
 
-        public Room(string name, string type, string description, List<string> amenities, decimal price)
+        public Room(string name, string type, List<string> amenities, decimal price)
         {
             Name = name;
             Type = type;
-            Description = description;
             Amenities = amenities;
             Price = price;
         }
@@ -62,13 +85,21 @@ namespace BookingCom.model
     public class Booking
     {
         [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("_id")]
         public ObjectId Id { get; set; }
 
-        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("userId")]
         public ObjectId UserId { get; set; }
 
-        [BsonId]
-        public ObjectId RoomId { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("stayId")]
+        public ObjectId StayId { get; set; }
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("roomId")]
+        public List<ObjectId> RoomId { get; set; }
 
         [BsonRepresentation(BsonType.Document)]
         public DateTime CheckInDate { get; set; }
