@@ -35,8 +35,14 @@ namespace BookingCom.model
         [BsonElement("location")]
         public string Location { get; set; }
 
+        [BsonElement("address")]
+        public string Address { get; set; }
+
         [BsonElement("description")]
         public string Description { get; set; }
+
+        [BsonElement("facilities")]
+        public List<String> Facilities { get; set; }
 
         [BsonElement("score")]
         public decimal Score { get; set; }
@@ -62,11 +68,17 @@ namespace BookingCom.model
         [BsonElement("type")]
         public string Type { get; set; }
 
+        [BsonElement("sleeps")]
+        public int Sleeps { get; set; }
+
         [BsonElement("amenities")]
         public List<string> Amenities { get; set; }
 
         [BsonElement("price")]
         public decimal Price { get; set; }
+
+        [BsonElement("availability")]
+        public int Availability { get; set; }
 
         public Room()
         {

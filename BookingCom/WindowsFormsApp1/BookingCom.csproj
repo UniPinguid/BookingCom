@@ -165,6 +165,12 @@
     <Compile Include="pages\luuTru.Designer.cs">
       <DependentUpon>luuTru.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\luuTru_stayInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\luuTru_stayInfo.Designer.cs">
+      <DependentUpon>luuTru_stayInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="dashboard.resx">
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\luuTru.resx">
       <DependentUpon>luuTru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\luuTru_stayInfo.resx">
+      <DependentUpon>luuTru_stayInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -61,6 +61,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLuuTru);
             this.Name = "dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.ResumeLayout(false);
             this.PerformLayout();

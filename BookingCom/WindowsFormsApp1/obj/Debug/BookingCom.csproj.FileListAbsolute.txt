@@ -53,3 +53,4 @@ D:\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Debug\BookingCom.csproj.Cor
 D:\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Debug\BookingCom.csproj.CopyComplete
 D:\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 D:\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Debug\BookingCom.pages.luuTru_stayInfo.resources

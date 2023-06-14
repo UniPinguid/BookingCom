@@ -125,7 +125,7 @@
             // btn_info
             // 
             this.btn_info.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btn_info.FlatAppearance.BorderSize = 0;
+            this.btn_info.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_info.Font = new System.Drawing.Font("Inter SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_info.ForeColor = System.Drawing.Color.White;
@@ -135,6 +135,7 @@
             this.btn_info.TabIndex = 3;
             this.btn_info.Text = "Tìm phòng";
             this.btn_info.UseVisualStyleBackColor = false;
+            this.btn_info.Click += new System.EventHandler(this.btn_info_Click);
             // 
             // label_description
             // 
@@ -190,6 +191,7 @@
             this.Controls.Add(this.btn_TimKiem);
             this.Controls.Add(this.textBox_TimKiem);
             this.Name = "luuTru";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Booking.com | Lưu trú";
             this.groupBox_stay0.ResumeLayout(false);
             this.groupBox_stay0.PerformLayout();
