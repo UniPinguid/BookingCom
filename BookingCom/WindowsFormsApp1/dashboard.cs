@@ -25,5 +25,11 @@ namespace BookingCom
             luuTru luuTruPage = new luuTru();
             luuTruPage.Show();
         }
+
+        private void btnDatXe_Click(object sender, EventArgs e)
+        {
+            datXe datXePage = new datXe();
+            datXePage.Show();
+        }
     }
 }
