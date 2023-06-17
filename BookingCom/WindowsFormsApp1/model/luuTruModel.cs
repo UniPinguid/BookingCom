@@ -84,14 +84,6 @@ namespace BookingCom.model
         {
             // Parameterless constructor for deserialization
         }
-
-        public Room(string name, string type, List<string> amenities, decimal price)
-        {
-            Name = name;
-            Type = type;
-            Amenities = amenities;
-            Price = price;
-        }
     }
 
     public class Booking
@@ -113,28 +105,33 @@ namespace BookingCom.model
         [BsonElement("roomId")]
         public List<ObjectId> RoomId { get; set; }
 
+        [BsonElement("roomNum")]
+        public List<decimal> RoomNum { get; set; }
+
+        [BsonElement("checkInDate")]
         [BsonRepresentation(BsonType.Document)]
         public DateTime CheckInDate { get; set; }
 
+        [BsonElement("checkOutDate")]
         [BsonRepresentation(BsonType.Document)]
         public DateTime CheckOutDate { get; set; }
 
-        [BsonElement]
+        [BsonElement("noNights")]
         public int NumberOfNights { get; set; }
 
-        [BsonElement]
+        [BsonElement("paymentMethod")]
         public string PaymentMethod { get; set; }
 
-        [BsonElement]
+        [BsonElement("paymentStatus")]
         public string PaymentStatus { get; set; }
 
-        [BsonElement]
+        [BsonElement("noAdults")]
         public int NumberOfAdults { get; set; }
 
-        [BsonElement]
+        [BsonElement("noChildren")]
         public int NumberOfChildren { get; set; }
 
-        [BsonElement]
+        [BsonElement("request")]
         public string SpecialRequests { get; set; }
     }
 }

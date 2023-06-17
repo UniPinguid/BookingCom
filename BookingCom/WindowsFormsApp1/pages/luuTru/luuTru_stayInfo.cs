@@ -7,12 +7,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using WindowsFormsApp1.pages.luuTru;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using GroupBox = System.Windows.Forms.GroupBox;
 
@@ -30,16 +32,23 @@ namespace BookingCom.pages
 
         public static string stayIdString = "";
 
+        public DateTime checkinDate;
+        public DateTime checkoutDate;
+        public int noAdults;
+        public int noChildren;
+
+        int total = 0;
+
         public luuTru_stayInfo()
         {
             InitializeComponent();
-            this.Size = new Size(1180, 650);
+            this.Size = new Size(1140, 680);
         }
 
         public luuTru_stayInfo(ObjectId stayId)
         {
             InitializeComponent();
-            this.Size = new Size(1180, 650);
+            this.Size = new Size(1140, 680);
 
             IMongoCollection<Stay> stayCollection = db.GetCollection<Stay>("stay");
 
@@ -64,6 +73,8 @@ namespace BookingCom.pages
                 label_score.Text = "";
             }
 
+            stayIdString = stay.Id.ToString();
+
             positioning();
             DisplayRoomData(stayId);
         }
@@ -74,6 +85,8 @@ namespace BookingCom.pages
 
             label_header_availability.Location = new Point(label_header_availability.Location.X, label_header_availability.Location.Y + height);
             groupBoxesPanel.Location = new Point(groupBoxesPanel.Location.X, groupBoxesPanel.Location.Y + height);
+
+            btn_reserve.Location = new Point(btn_reserve.Location.X, btn_reserve.Location.Y + height);
         }
 
         public void DisplayRoomData(ObjectId stayId)
@@ -100,6 +113,7 @@ namespace BookingCom.pages
                 // Set the properties of the GroupBox
                 groupBox.Size = groupBox_room.Size;
                 groupBox.Location = new Point(groupBox_room.Location.X, groupBoxY);
+                groupBox.Name = room.Id.ToString();
 
                 Label label_roomName = new Label();
                 label_roomName.Text = room.Name;
@@ -112,13 +126,15 @@ namespace BookingCom.pages
                 Label label_amenities = new Label();
                 string amenitiesText = string.Join(", ", room.Amenities);
                 label_amenities.Text = amenitiesText;
-
                 luuTru.cloneLabel("label_amenities", label_amenities, groupBox_room);
-                label_amenities.BringToFront();
 
                 Label label_sleeps = new Label();
                 label_sleeps.Text = "Sleeps: " + room.Sleeps.ToString();
                 luuTru.cloneLabel("label_sleeps", label_sleeps, groupBox_room);
+
+                Label label_availability = new Label();
+                label_availability.Text = room.Availability.ToString() + " left";
+                luuTru.cloneLabel("label_availability", label_availability, groupBox_room);
 
                 Label label_roomPrice = new Label();
                 label_roomPrice.Text = "VND " + room.Price.ToString();
@@ -126,28 +142,37 @@ namespace BookingCom.pages
 
                 Button buttonDec = new Button();
                 buttonDec.Text = btn_dec.ToString();
+                buttonDec.Tag = room.Id.ToString();
                 luuTru.cloneButton("btn_dec", buttonDec, groupBox_room);
-                // buttonDec.Click += buttonDec_click;
 
                 Button buttonInc = new Button();
                 buttonInc.Text = btn_inc.ToString();
+                buttonInc.Tag = room.Id.ToString();
                 luuTru.cloneButton("btn_inc", buttonInc, groupBox_room);
-                // buttonDec.Click += buttonDec_click;
 
                 TextBox textBoxAmount = new TextBox();
                 textBoxAmount.Text = "0";
+                textBoxAmount.Name = room.Id.ToString();
                 luuTru.cloneTextBox("textBox_amount", textBoxAmount, groupBox_room);
 
                 // Add the labels to the GroupBox
                 groupBox.Controls.Add(label_roomName);
                 groupBox.Controls.Add(label_roomType);
                 groupBox.Controls.Add(label_sleeps);
+
+                if (room.Availability < 10)
+                    groupBox.Controls.Add(label_availability);
+
                 groupBox.Controls.Add(label_amenities);
                 groupBox.Controls.Add(label_roomPrice);
 
                 // Add buttons to the GroupBox
+                buttonDec.Click += btn_dec_Click;
                 groupBox.Controls.Add(buttonDec);
+
+                buttonInc.Click += btn_inc_Click;
                 groupBox.Controls.Add(buttonInc);
+
                 groupBox.Controls.Add(textBoxAmount);
 
                 // Add the cloned GroupBox to the panel or container
@@ -158,9 +183,106 @@ namespace BookingCom.pages
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btn_inc_Click(object sender, EventArgs e)
         {
+            Button clickedButton = (Button)sender;
+            string roomId = clickedButton.Tag.ToString();
 
+            GroupBox groupBox = groupBoxesPanel.Controls.Find(roomId, true).FirstOrDefault() as GroupBox;
+            TextBox textBoxAmount = groupBox.Controls.Find(roomId, true).FirstOrDefault() as TextBox;
+
+            IMongoCollection<Room> roomCollection = db.GetCollection<Room>("room");
+
+            // Build the filter condition
+            var filter = Builders<Room>.Filter.Eq(r => r.Id, ObjectId.Parse(roomId));
+
+            // Execute the query and retrieve the matching room
+            Room room = roomCollection.Find(filter).FirstOrDefault();
+
+            int amount = Convert.ToInt32(textBoxAmount.Text);
+            if (amount < room.Availability)
+            {
+                amount++;
+                textBoxAmount.Text = amount.ToString();
+                updateTotalPrice(groupBox);
+            }
+        }
+
+        private void btn_dec_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = (Button)sender;
+            string roomId = clickedButton.Tag.ToString();
+
+            GroupBox groupBox = groupBoxesPanel.Controls.Find(roomId, true).FirstOrDefault() as GroupBox;
+            TextBox textBoxAmount = groupBox.Controls.Find(roomId, true).FirstOrDefault() as TextBox;
+
+            IMongoCollection<Room> roomCollection = db.GetCollection<Room>("room");
+
+            // Build the filter condition
+            var filter = Builders<Room>.Filter.Eq(r => r.Id, ObjectId.Parse(roomId));
+
+            // Execute the query and retrieve the matching room
+            Room room = roomCollection.Find(filter).FirstOrDefault();
+
+            int amount = Convert.ToInt32(textBoxAmount.Text);
+
+            if (amount > 0)
+            {
+                amount--;
+                textBoxAmount.Text = amount.ToString();
+                updateTotalPrice(groupBox);
+            }
+        }
+
+        private void updateTotalPrice(GroupBox groupBox)
+        {
+            int room_total = 0;
+
+            foreach (Control control in groupBoxesPanel.Controls)
+            {
+                if (control is GroupBox group)
+                {
+                    foreach (Control childControl in group.Controls)
+                    {
+                        if (childControl is TextBox textBox)
+                        {
+                            string roomId = childControl.Name.ToString();
+
+                            IMongoCollection<Room> roomCollection = db.GetCollection<Room>("room");
+
+                            // Build the filter condition
+                            var filter = Builders<Room>.Filter.Eq(r => r.Id, ObjectId.Parse(roomId));
+
+                            // Execute the query and retrieve the matching room
+                            Room room = roomCollection.Find(filter).FirstOrDefault();
+
+                            room_total += (int)room.Price * Convert.ToInt32(childControl.Text);
+                        }
+                    }
+                }
+            }
+
+            total = room_total;
+            label_total.Text = "VND " + total.ToString();
+        }
+
+
+        private void btn_reserver_MouseHover(object sender, EventArgs e)
+        {
+            btn_reserve.BackColor = Color.FromArgb(255, 11, 87, 163);
+
+        }
+
+        private void btn_reserver_MouseLeave(object sender, EventArgs e)
+        {
+            btn_reserve.BackColor = Color.FromArgb(255, 0, 102, 204);
+        }
+
+        private void btn_reserve_click(object sender, EventArgs e)
+        {
+            luuTru_booking bookingPage = new luuTru_booking();
+            bookingPage.checkinDate = checkinDate;
+            bookingPage.Show();
         }
     }
 }

@@ -30,6 +30,11 @@ namespace BookingCom.pages
 
         public static string selectStayId = "";
 
+        public DateTime checkinDate;
+        public DateTime checkoutDate;
+        public int noAdults = 0;
+        public int noChildren = 0;
+
 
         // Define a class to represent the result of the aggregation
         public class StayAggregate
@@ -41,6 +46,9 @@ namespace BookingCom.pages
         public luuTru()
         {
             InitializeComponent();
+
+            checkinDate = DateTime.Now;
+            checkoutDate = DateTime.Now.AddDays(1);
 
             readData();
         }
@@ -84,10 +92,6 @@ namespace BookingCom.pages
             newTextBox.TextAlign = (HorizontalAlignment)textAlign;
         }
 
-        public static Button getButton(string name, GroupBox groupBox)
-        {
-            return groupBox.Controls.Find(name, true).FirstOrDefault() as Button;
-        }
 
         public static void cloneButton(string oldButtonName, Button newButton, GroupBox groupBox)
         {
@@ -191,8 +195,28 @@ namespace BookingCom.pages
             ObjectId selectedStayId = ObjectId.Parse(clickedButton.Tag.ToString());
 
             luuTru_stayInfo stayInfo = new luuTru_stayInfo(selectedStayId);
+            stayInfo.checkinDate = checkinDate;
             stayInfo.Show();
         }
 
+        private void check_in_date_ValueChanged(object sender, EventArgs e)
+        {
+            checkinDate = check_in_date.Value;
+        }
+
+        private void check_out_date_ValueChanged(object sender, EventArgs e)
+        {
+            checkoutDate = check_out_date.Value;
+        }
+
+        private void noAdultsUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            noAdults = (int)noAdultsUpDown.Value;
+        }
+
+        private void noChildrenUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            noChildren = (int)noChildrenUpDown.Value;
+        }
     }
 }
