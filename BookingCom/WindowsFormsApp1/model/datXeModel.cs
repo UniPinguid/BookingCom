@@ -10,34 +10,103 @@ namespace BookingCom.model
 {
     public class Location
     {
+        [BsonElement]
         public string Name { get; set; }
+        [BsonElement]
         public double Latitude { get; set; }
+        [BsonElement]
         public long Longitude { get; set; }
     }
 
     public class Reviews
     {
+        [BsonElement]
         public double CarCleanliness { get; set; }
+        [BsonElement]
         public double PickUpSpeed { get; set; }
+        [BsonElement]
         public double DropOffSpeed { get; set; }
+        [BsonElement]
         public double CarCondition { get; set; }
+        [BsonElement]
         public double Helpfulness { get; set; }
+        [BsonElement]
         public double EasyToFind { get; set; }
+        [BsonElement]
         public double Value { get; set; }
     }
 
     public class CarRentalProvider
     {
+        [BsonElement]
         public string Name { get; set; }
+        [BsonElement]
         public string IncludedInRentalPrice { get; set; }
+        [BsonElement]
         public string NotIncludedInRentalPrice { get; set; }
+        [BsonElement]
         public string WhatYouNeedAtPickUP { get; set; }
+        [BsonElement]
         public string DepositsExcessCover { get; set; }
+        [BsonElement]
         public string FuelPolicy { get; set; }
+        [BsonElement]
         public string ExtraServices { get; set; }
+        [BsonElement]
         public string ExtraEquipment { get; set; }
+        [BsonElement]
         public string ImportantInformation { get; set; }
+        [BsonElement]
         public Reviews Reviews { get; set; }
+    }
+
+    public class BillingAddress
+    {
+        [BsonElement]
+        public string FirstName { get; set;}
+        [BsonElement]
+        public string LastName { get; set;}
+        [BsonElement]
+        public string ContactNumber { get; set; }
+        [BsonElement]
+        public string Country { get; set; }
+        [BsonElement]
+        public string Address { get; set; }
+        [BsonElement]
+        public string City { get; set; }
+        [BsonElement]
+        public int Postcode { get; set; }
+        [BsonElement]
+        public bool BusinessBooking { get; set; }
+    }
+
+    public class MainDriver
+    {
+        [BsonElement]
+        public string Email { get; set; }
+        [BsonElement]
+        public string Title { get; set; }
+        [BsonElement]
+        public string FirstName { get; set;}
+        [BsonElement]
+        public string LastName { get; set;}
+        [BsonElement]
+        public string ContactPhone { get; set; }
+        [BsonElement]
+        public string CountryOfResidence { get; set; }
+        [BsonElement]
+        public int Age { get; set; }
+    }
+    public class Payment
+    {
+        [BsonElement]
+        public string CardHolderName { get; set; }
+        [BsonElement]
+        public string CarNumber { get; set; }
+        [BsonElement]
+        public DateTime ExpiryDate { get; set; }
+        [BsonElement]
+        public string CVC { get; set; }
     }
     public class Car
     {
@@ -60,7 +129,7 @@ namespace BookingCom.model
         [BsonElement]
         public string Information { get; set; }
         [BsonElement]
-        public string Tag { get; set; }
+        public List<string> Tags { get; set; }
         [BsonElement]
         public string ElectricCar { get; set; }
         [BsonElement]
@@ -81,6 +150,12 @@ namespace BookingCom.model
         public DateTime Pickup_Time { get; set; }
         [BsonElement]
         public DateTime Dropoff_Time { get; set; }
+        [BsonElement]
+        public BillingAddress BillingAddress { get; set; }
+        [BsonElement]
+        public Payment Payment { get; set; }
+        [BsonElement]
+        public MainDriver MainDriver { get; set; }
 
     }   
 }

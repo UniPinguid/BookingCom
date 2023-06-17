@@ -183,6 +183,9 @@
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="pages\datXe.resx">
+      <DependentUpon>datXe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pages\luuTru.resx">
       <DependentUpon>luuTru.cs</DependentUpon>
     </EmbeddedResource>

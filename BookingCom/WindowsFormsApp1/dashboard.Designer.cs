@@ -57,6 +57,7 @@
             // 
             // btnDatXe
             // 
+            this.btnDatXe.Font = new System.Drawing.Font("Inter SemiBold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnDatXe.Location = new System.Drawing.Point(699, 209);
             this.btnDatXe.Name = "btnDatXe";
             this.btnDatXe.Size = new System.Drawing.Size(220, 124);

@@ -110,3 +110,4 @@ C:\Users\Ngan Le\Documents\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Deb
 C:\Users\Ngan Le\Documents\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Debug\BookingCom.csproj.CopyComplete
 C:\Users\Ngan Le\Documents\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Ngan Le\Documents\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Ngan Le\Documents\GitHub\BookingCom\BookingCom\WindowsFormsApp1\obj\Debug\BookingCom.pages.datXe.resources
