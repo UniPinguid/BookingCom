@@ -34,6 +34,7 @@ namespace BookingCom.pages
 
         public DateTime checkinDate;
         public DateTime checkoutDate;
+        public int noNights;
         public int noAdults;
         public int noChildren;
 
@@ -280,9 +281,48 @@ namespace BookingCom.pages
 
         private void btn_reserve_click(object sender, EventArgs e)
         {
-            luuTru_booking bookingPage = new luuTru_booking();
-            bookingPage.checkinDate = checkinDate;
-            bookingPage.Show();
+            List<string> roomIdList = new List<string>();
+            List<int> roomNumList = new List<int>();
+
+            // Get list of booked rooms
+            foreach (Control control in groupBoxesPanel.Controls)
+            {
+                if (control is GroupBox group)
+                {
+                    foreach (Control childControl in group.Controls)
+                    {
+                        if (childControl is TextBox textBox)
+                        {
+                            if (Convert.ToInt32(childControl.Text) > 0)
+                            {
+                                string roomId = childControl.Name.ToString();
+                                roomIdList.Add(roomId);
+                                roomNumList.Add(Convert.ToInt16(childControl.Text));
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (roomIdList.Count > 0)
+            {
+                luuTru_booking bookingPage = new luuTru_booking();
+
+                bookingPage.roomList = roomIdList;
+                bookingPage.roomNumList = roomNumList;
+                bookingPage.stayIdString = stayIdString;
+                bookingPage.checkinDate = checkinDate;
+                bookingPage.checkoutDate = checkoutDate;
+                bookingPage.noNights = noNights;
+                bookingPage.noAdults = noAdults;
+                bookingPage.noChildren = noChildren;
+                bookingPage.total = total;
+                bookingPage.Show();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn phòng và số lượng phòng");
+            }
         }
     }
 }

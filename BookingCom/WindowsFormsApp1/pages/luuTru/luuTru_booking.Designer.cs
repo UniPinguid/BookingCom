@@ -30,24 +30,25 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox_request = new System.Windows.Forms.TextBox();
+            this.dgv_roomData = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_name = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label_address = new System.Windows.Forms.Label();
             this.label_location = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label_alert_payment = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.paymentMethods = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.label_checkout = new System.Windows.Forms.Label();
             this.label_checkin = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label_adults_children = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -60,9 +61,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btn_pay = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
-            this.label_alert_payment = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_roomData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,12 +80,12 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.textBox_request);
+            this.panel1.Controls.Add(this.dgv_roomData);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label_name);
             this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label_address);
             this.panel1.Controls.Add(this.label_location);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -94,11 +94,11 @@
             this.panel1.Controls.Add(this.paymentMethods);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.label_checkout);
             this.panel1.Controls.Add(this.label_checkin);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.label_adults_children);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label12);
@@ -112,42 +112,46 @@
             this.panel1.Size = new System.Drawing.Size(1250, 531);
             this.panel1.TabIndex = 1;
             // 
-            // textBox1
+            // textBox_request
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(702, 463);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(483, 49);
-            this.textBox1.TabIndex = 6;
+            this.textBox_request.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_request.Location = new System.Drawing.Point(702, 463);
+            this.textBox_request.Multiline = true;
+            this.textBox_request.Name = "textBox_request";
+            this.textBox_request.Size = new System.Drawing.Size(483, 49);
+            this.textBox_request.TabIndex = 6;
             // 
-            // dataGridView1
+            // dgv_roomData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(510, 208);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(675, 211);
-            this.dataGridView1.TabIndex = 8;
+            this.dgv_roomData.AllowUserToAddRows = false;
+            this.dgv_roomData.AllowUserToDeleteRows = false;
+            this.dgv_roomData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_roomData.Location = new System.Drawing.Point(510, 208);
+            this.dgv_roomData.Name = "dgv_roomData";
+            this.dgv_roomData.ReadOnly = true;
+            this.dgv_roomData.RowHeadersVisible = false;
+            this.dgv_roomData.RowHeadersWidth = 51;
+            this.dgv_roomData.RowTemplate.Height = 24;
+            this.dgv_roomData.Size = new System.Drawing.Size(675, 211);
+            this.dgv_roomData.TabIndex = 8;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.pictureBox1.Location = new System.Drawing.Point(55, 208);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 136);
+            this.pictureBox1.Size = new System.Drawing.Size(117, 117);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // label_name
             // 
             this.label_name.BackColor = System.Drawing.Color.Transparent;
-            this.label_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.label_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label_name.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label_name.Location = new System.Drawing.Point(213, 208);
+            this.label_name.Location = new System.Drawing.Point(179, 208);
             this.label_name.Name = "label_name";
-            this.label_name.Size = new System.Drawing.Size(277, 30);
+            this.label_name.Size = new System.Drawing.Size(310, 30);
             this.label_name.TabIndex = 5;
             this.label_name.Text = "STAYNAME";
             // 
@@ -162,17 +166,17 @@
             this.label19.TabIndex = 3;
             this.label19.Text = "Yêu cầu / Nhắn nhủ";
             // 
-            // label11
+            // label_address
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label11.Location = new System.Drawing.Point(214, 296);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(76, 22);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Address";
+            this.label_address.AutoSize = true;
+            this.label_address.BackColor = System.Drawing.Color.Transparent;
+            this.label_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_address.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label_address.Location = new System.Drawing.Point(180, 296);
+            this.label_address.Name = "label_address";
+            this.label_address.Size = new System.Drawing.Size(76, 22);
+            this.label_address.TabIndex = 6;
+            this.label_address.Text = "Address";
             // 
             // label_location
             // 
@@ -180,7 +184,7 @@
             this.label_location.BackColor = System.Drawing.Color.Transparent;
             this.label_location.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_location.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label_location.Location = new System.Drawing.Point(215, 245);
+            this.label_location.Location = new System.Drawing.Point(181, 245);
             this.label_location.Name = "label_location";
             this.label_location.Size = new System.Drawing.Size(78, 22);
             this.label_location.TabIndex = 6;
@@ -201,6 +205,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1132, 1);
             this.panel2.TabIndex = 2;
+            // 
+            // label_alert_payment
+            // 
+            this.label_alert_payment.AutoSize = true;
+            this.label_alert_payment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_alert_payment.ForeColor = System.Drawing.Color.IndianRed;
+            this.label_alert_payment.Location = new System.Drawing.Point(56, 495);
+            this.label_alert_payment.Name = "label_alert_payment";
+            this.label_alert_payment.Size = new System.Drawing.Size(237, 18);
+            this.label_alert_payment.TabIndex = 3;
+            this.label_alert_payment.Text = "*vui lòng chọn hình thức thanh toán";
             // 
             // label2
             // 
@@ -247,15 +262,15 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Email";
             // 
-            // label18
+            // label_checkout
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(928, 126);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(100, 24);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "22/06/2023";
+            this.label_checkout.AutoSize = true;
+            this.label_checkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_checkout.Location = new System.Drawing.Point(928, 126);
+            this.label_checkout.Name = "label_checkout";
+            this.label_checkout.Size = new System.Drawing.Size(100, 24);
+            this.label_checkout.TabIndex = 1;
+            this.label_checkout.Text = "22/06/2023";
             // 
             // label_checkin
             // 
@@ -288,15 +303,15 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "SĐT";
             // 
-            // label14
+            // label_adults_children
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(236, 126);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 24);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "1 / 0";
+            this.label_adults_children.AutoSize = true;
+            this.label_adults_children.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_adults_children.Location = new System.Drawing.Point(236, 126);
+            this.label_adults_children.Name = "label_adults_children";
+            this.label_adults_children.Size = new System.Drawing.Size(45, 24);
+            this.label_adults_children.TabIndex = 1;
+            this.label_adults_children.Text = "1 / 0";
             // 
             // label5
             // 
@@ -419,6 +434,7 @@
             this.btn_pay.TabIndex = 5;
             this.btn_pay.Text = "Thanh toán";
             this.btn_pay.UseVisualStyleBackColor = false;
+            this.btn_pay.Click += new System.EventHandler(this.btn_pay_Click);
             // 
             // btn_back
             // 
@@ -432,17 +448,6 @@
             this.btn_back.TabIndex = 5;
             this.btn_back.Text = "Quay lại";
             this.btn_back.UseVisualStyleBackColor = true;
-            // 
-            // label_alert_payment
-            // 
-            this.label_alert_payment.AutoSize = true;
-            this.label_alert_payment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_alert_payment.ForeColor = System.Drawing.Color.IndianRed;
-            this.label_alert_payment.Location = new System.Drawing.Point(56, 495);
-            this.label_alert_payment.Name = "label_alert_payment";
-            this.label_alert_payment.Size = new System.Drawing.Size(237, 18);
-            this.label_alert_payment.TabIndex = 3;
-            this.label_alert_payment.Text = "*vui lòng chọn hình thức thanh toán";
             // 
             // luuTru_booking
             // 
@@ -460,7 +465,7 @@
             this.Text = "Booking.com | Lưu trú - Booking";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_roomData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -488,18 +493,18 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_name;
         private System.Windows.Forms.Label label_location;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label_address;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView dgv_roomData;
+        private System.Windows.Forms.Label label_adults_children;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label_checkout;
         private System.Windows.Forms.Label label_checkin;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_request;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label_alert_payment;
     }

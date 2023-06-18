@@ -32,6 +32,7 @@ namespace BookingCom.pages
 
         public DateTime checkinDate;
         public DateTime checkoutDate;
+        public int noNights;
         public int noAdults = 0;
         public int noChildren = 0;
 
@@ -196,6 +197,11 @@ namespace BookingCom.pages
 
             luuTru_stayInfo stayInfo = new luuTru_stayInfo(selectedStayId);
             stayInfo.checkinDate = checkinDate;
+            stayInfo.checkoutDate = checkoutDate;
+            stayInfo.noNights = noNights;
+            stayInfo.noAdults = noAdults;
+            stayInfo.noChildren = noChildren;
+
             stayInfo.Show();
         }
 

@@ -28,8 +28,8 @@ namespace BookingCom
 
         private void btnDatXe_Click(object sender, EventArgs e)
         {
-            datXe datXePage = new datXe();
-            datXePage.Show();
+            //datXe datXePage = new datXe();
+            //datXePage.Show();
         }
     }
 }
