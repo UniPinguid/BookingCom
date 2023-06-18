@@ -171,6 +171,12 @@
     <Compile Include="pages\luuTru\luuTru_booking.Designer.cs">
       <DependentUpon>luuTru_booking.cs</DependentUpon>
     </Compile>
+    <Compile Include="pages\luuTru\luuTru_bookingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pages\luuTru\luuTru_bookingList.Designer.cs">
+      <DependentUpon>luuTru_bookingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="pages\luuTru\luuTru_stayInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pages\luuTru\luuTru_booking.resx">
       <DependentUpon>luuTru_booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\luuTru\luuTru_bookingList.resx">
+      <DependentUpon>luuTru_bookingList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pages\luuTru\luuTru_stayInfo.resx">
       <DependentUpon>luuTru_stayInfo.cs</DependentUpon>

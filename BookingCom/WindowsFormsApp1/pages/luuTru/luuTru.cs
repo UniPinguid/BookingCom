@@ -15,6 +15,7 @@ using System.Xml;
 using BookingCom.pages;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using GroupBox = System.Windows.Forms.GroupBox;
+using WindowsFormsApp1.pages.luuTru;
 
 namespace BookingCom.pages
 {
@@ -33,7 +34,7 @@ namespace BookingCom.pages
         public DateTime checkinDate;
         public DateTime checkoutDate;
         public int noNights;
-        public int noAdults = 0;
+        public int noAdults = 1;
         public int noChildren = 0;
 
 
@@ -122,8 +123,16 @@ namespace BookingCom.pages
 
         public void readData()
         {
-            // Retrieve data from the "Stay" collection
-            var stays = collection.Find(FilterDefinition<Stay>.Empty).ToList();
+            string searchQuery = textBox_TimKiem.Text.Trim().ToLower(); // Get the search query from the textbox
+
+            // Build the filter condition to search by name, location, and address
+            var filter = Builders<Stay>.Filter.Where(s =>
+                s.Name.ToLower().Contains(searchQuery) ||
+                s.Location.ToLower().Contains(searchQuery) ||
+                s.Address.ToLower().Contains(searchQuery));
+
+            // Retrieve data from the "Stay" collection based on the filter
+            var stays = collection.Find(filter).ToList();
 
             // Clear existing GroupBoxes before populating new ones
             groupBoxesPanel.Controls.Clear();
@@ -223,6 +232,12 @@ namespace BookingCom.pages
         private void noChildrenUpDown_ValueChanged(object sender, EventArgs e)
         {
             noChildren = (int)noChildrenUpDown.Value;
+        }
+
+        private void btn_listBooking_Click(object sender, EventArgs e)
+        {
+            luuTru_bookingList bookingList = new luuTru_bookingList();
+            bookingList.Show();
         }
     }
 }

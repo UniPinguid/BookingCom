@@ -48,6 +48,8 @@
             this.btn_reserve = new System.Windows.Forms.Panel();
             this.label_total = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label_address = new System.Windows.Forms.Label();
+            this.label_header_review = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_room.SuspendLayout();
             this.groupBoxesPanel.SuspendLayout();
@@ -81,8 +83,8 @@
             this.label_description.BackColor = System.Drawing.Color.Transparent;
             this.label_description.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label_description.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label_description.Location = new System.Drawing.Point(48, 295);
-            this.label_description.MaximumSize = new System.Drawing.Size(1270, 0);
+            this.label_description.Location = new System.Drawing.Point(39, 291);
+            this.label_description.MaximumSize = new System.Drawing.Size(1320, 0);
             this.label_description.Name = "label_description";
             this.label_description.Size = new System.Drawing.Size(174, 20);
             this.label_description.TabIndex = 0;
@@ -135,7 +137,7 @@
             this.groupBox_room.Controls.Add(this.label_roomName);
             this.groupBox_room.Location = new System.Drawing.Point(17, 15);
             this.groupBox_room.Name = "groupBox_room";
-            this.groupBox_room.Size = new System.Drawing.Size(1334, 165);
+            this.groupBox_room.Size = new System.Drawing.Size(1324, 165);
             this.groupBox_room.TabIndex = 6;
             this.groupBox_room.TabStop = false;
             // 
@@ -143,7 +145,7 @@
             // 
             this.btn_dec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dec.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_dec.Location = new System.Drawing.Point(1194, 27);
+            this.btn_dec.Location = new System.Drawing.Point(1183, 27);
             this.btn_dec.Name = "btn_dec";
             this.btn_dec.Size = new System.Drawing.Size(35, 35);
             this.btn_dec.TabIndex = 4;
@@ -158,7 +160,7 @@
             this.btn_inc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_inc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_inc.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_inc.Location = new System.Drawing.Point(1280, 27);
+            this.btn_inc.Location = new System.Drawing.Point(1269, 27);
             this.btn_inc.Name = "btn_inc";
             this.btn_inc.Size = new System.Drawing.Size(35, 35);
             this.btn_inc.TabIndex = 4;
@@ -170,7 +172,7 @@
             // 
             this.textBox_amount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_amount.Location = new System.Drawing.Point(1235, 28);
+            this.textBox_amount.Location = new System.Drawing.Point(1224, 28);
             this.textBox_amount.Name = "textBox_amount";
             this.textBox_amount.ReadOnly = true;
             this.textBox_amount.Size = new System.Drawing.Size(39, 30);
@@ -183,7 +185,7 @@
             this.label_availability.BackColor = System.Drawing.Color.Transparent;
             this.label_availability.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_availability.ForeColor = System.Drawing.Color.IndianRed;
-            this.label_availability.Location = new System.Drawing.Point(1183, 95);
+            this.label_availability.Location = new System.Drawing.Point(1172, 95);
             this.label_availability.Name = "label_availability";
             this.label_availability.Size = new System.Drawing.Size(132, 21);
             this.label_availability.TabIndex = 2;
@@ -206,7 +208,7 @@
             this.label_roomPrice.BackColor = System.Drawing.Color.Transparent;
             this.label_roomPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label_roomPrice.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label_roomPrice.Location = new System.Drawing.Point(974, 116);
+            this.label_roomPrice.Location = new System.Drawing.Point(963, 116);
             this.label_roomPrice.Name = "label_roomPrice";
             this.label_roomPrice.Size = new System.Drawing.Size(341, 30);
             this.label_roomPrice.TabIndex = 1;
@@ -298,6 +300,29 @@
             this.label1.MouseLeave += new System.EventHandler(this.btn_reserver_MouseLeave);
             this.label1.MouseHover += new System.EventHandler(this.btn_reserver_MouseHover);
             // 
+            // label_address
+            // 
+            this.label_address.AutoSize = true;
+            this.label_address.BackColor = System.Drawing.Color.Transparent;
+            this.label_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_address.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label_address.Location = new System.Drawing.Point(310, 108);
+            this.label_address.Name = "label_address";
+            this.label_address.Size = new System.Drawing.Size(76, 22);
+            this.label_address.TabIndex = 0;
+            this.label_address.Text = "Address";
+            // 
+            // label_header_review
+            // 
+            this.label_header_review.BackColor = System.Drawing.Color.Transparent;
+            this.label_header_review.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label_header_review.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_header_review.Location = new System.Drawing.Point(37, 864);
+            this.label_header_review.Name = "label_header_review";
+            this.label_header_review.Size = new System.Drawing.Size(879, 34);
+            this.label_header_review.TabIndex = 0;
+            this.label_header_review.Text = "Đánh giá";
+            // 
             // luuTru_stayInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -310,8 +335,10 @@
             this.Controls.Add(this.label_score);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label_description);
+            this.Controls.Add(this.label_header_review);
             this.Controls.Add(this.label_header_availability);
             this.Controls.Add(this.label_name);
+            this.Controls.Add(this.label_address);
             this.Controls.Add(this.label_location);
             this.Name = "luuTru_stayInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -348,5 +375,7 @@
         private System.Windows.Forms.Panel btn_reserve;
         private System.Windows.Forms.Label label_total;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_address;
+        private System.Windows.Forms.Label label_header_review;
     }
 }

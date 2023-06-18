@@ -64,6 +64,7 @@ namespace BookingCom.pages
                 label_location.Text = stay.Location;
                 label_description.Text = stay.Description;
                 label_score.Text = stay.Score.ToString();
+                label_address.Text = stay.Address;
             }
             else
             {
@@ -88,6 +89,8 @@ namespace BookingCom.pages
             groupBoxesPanel.Location = new Point(groupBoxesPanel.Location.X, groupBoxesPanel.Location.Y + height);
 
             btn_reserve.Location = new Point(btn_reserve.Location.X, btn_reserve.Location.Y + height);
+
+            label_header_review.Location = new Point(label_header_review.Location.X, label_header_review.Location.Y + height);
         }
 
         public void DisplayRoomData(ObjectId stayId)

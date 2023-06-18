@@ -50,6 +50,7 @@
             this.noAdultsUpDown = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_listBooking = new System.Windows.Forms.Button();
             this.groupBox_stay0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxesPanel.SuspendLayout();
@@ -99,7 +100,7 @@
             this.groupBox_stay0.Controls.Add(this.label_name);
             this.groupBox_stay0.Location = new System.Drawing.Point(12, 9);
             this.groupBox_stay0.Name = "groupBox_stay0";
-            this.groupBox_stay0.Size = new System.Drawing.Size(1308, 237);
+            this.groupBox_stay0.Size = new System.Drawing.Size(1295, 237);
             this.groupBox_stay0.TabIndex = 7;
             this.groupBox_stay0.TabStop = false;
             // 
@@ -108,7 +109,7 @@
             this.label_cheap.BackColor = System.Drawing.Color.Transparent;
             this.label_cheap.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.label_cheap.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label_cheap.Location = new System.Drawing.Point(1022, 141);
+            this.label_cheap.Location = new System.Drawing.Point(1015, 141);
             this.label_cheap.Name = "label_cheap";
             this.label_cheap.Size = new System.Drawing.Size(268, 36);
             this.label_cheap.TabIndex = 6;
@@ -120,7 +121,7 @@
             this.label_score.BackColor = System.Drawing.Color.MidnightBlue;
             this.label_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label_score.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label_score.Location = new System.Drawing.Point(1246, 24);
+            this.label_score.Location = new System.Drawing.Point(1239, 24);
             this.label_score.Name = "label_score";
             this.label_score.Size = new System.Drawing.Size(44, 44);
             this.label_score.TabIndex = 5;
@@ -143,7 +144,7 @@
             this.btn_info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_info.ForeColor = System.Drawing.Color.White;
-            this.btn_info.Location = new System.Drawing.Point(1147, 185);
+            this.btn_info.Location = new System.Drawing.Point(1140, 185);
             this.btn_info.Name = "btn_info";
             this.btn_info.Size = new System.Drawing.Size(143, 36);
             this.btn_info.TabIndex = 3;
@@ -164,13 +165,12 @@
             // 
             // label_location
             // 
-            this.label_location.AutoSize = true;
             this.label_location.BackColor = System.Drawing.Color.Transparent;
             this.label_location.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_location.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label_location.Location = new System.Drawing.Point(176, 59);
             this.label_location.Name = "label_location";
-            this.label_location.Size = new System.Drawing.Size(78, 22);
+            this.label_location.Size = new System.Drawing.Size(267, 22);
             this.label_location.TabIndex = 0;
             this.label_location.Text = "Location";
             // 
@@ -192,7 +192,7 @@
             this.groupBoxesPanel.Controls.Add(this.groupBox_stay0);
             this.groupBoxesPanel.Location = new System.Drawing.Point(31, 154);
             this.groupBoxesPanel.Name = "groupBoxesPanel";
-            this.groupBoxesPanel.Size = new System.Drawing.Size(1336, 468);
+            this.groupBoxesPanel.Size = new System.Drawing.Size(1336, 549);
             this.groupBoxesPanel.TabIndex = 8;
             // 
             // label2
@@ -298,22 +298,33 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Số người lớn";
             // 
+            // btn_listBooking
+            // 
+            this.btn_listBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_listBooking.Location = new System.Drawing.Point(1167, 20);
+            this.btn_listBooking.Name = "btn_listBooking";
+            this.btn_listBooking.Size = new System.Drawing.Size(200, 34);
+            this.btn_listBooking.TabIndex = 2;
+            this.btn_listBooking.Text = "Quản lý đặt phòng";
+            this.btn_listBooking.UseVisualStyleBackColor = true;
+            this.btn_listBooking.Click += new System.EventHandler(this.btn_listBooking_Click);
+            // 
             // luuTru
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1379, 634);
+            this.ClientSize = new System.Drawing.Size(1379, 734);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxesPanel);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_listBooking);
             this.Controls.Add(this.btn_TimKiem);
             this.Controls.Add(this.textBox_TimKiem);
             this.Name = "luuTru";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Booking.com | Lưu trú";
             this.groupBox_stay0.ResumeLayout(false);
-            this.groupBox_stay0.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxesPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -350,5 +361,6 @@
         private System.Windows.Forms.NumericUpDown noChildrenUpDown;
         private System.Windows.Forms.NumericUpDown noAdultsUpDown;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_listBooking;
     }
 }
