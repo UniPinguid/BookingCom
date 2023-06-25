@@ -1,23 +1,16 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver.GeoJsonObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace BookingCom.model
 {
-    public class Location
-    {
-        [BsonElement]
-        public string Name { get; set; }
-        [BsonElement]
-        public double Latitude { get; set; }
-        [BsonElement]
-        public long Longitude { get; set; }
-    }
-
     public class Reviews
     {
         [BsonElement]
@@ -33,7 +26,7 @@ namespace BookingCom.model
         [BsonElement]
         public double EasyToFind { get; set; }
         [BsonElement]
-        public double Value { get; set; }
+        public double Score { get; set; }
     }
 
     public class CarRentalProvider
@@ -56,8 +49,6 @@ namespace BookingCom.model
         public string ExtraEquipment { get; set; }
         [BsonElement]
         public string ImportantInformation { get; set; }
-        [BsonElement]
-        public Reviews Reviews { get; set; }
     }
 
     public class BillingAddress
@@ -102,7 +93,7 @@ namespace BookingCom.model
         [BsonElement]
         public string CardHolderName { get; set; }
         [BsonElement]
-        public string CarNumber { get; set; }
+        public string CardNumber { get; set; }
         [BsonElement]
         public DateTime ExpiryDate { get; set; }
         [BsonElement]
@@ -111,9 +102,9 @@ namespace BookingCom.model
     public class Car
     {
         [BsonId]
-        public Object Id { get; set; }
+        public ObjectId Id { get; set; }
         [BsonElement]
-        public CarRentalProvider RentalProvider { get; set; }
+        public CarRentalProvider CarRentalProvider { get; set; }
         [BsonElement]
         public string CarBrand { get; set; }
         [BsonElement]
@@ -133,29 +124,37 @@ namespace BookingCom.model
         [BsonElement]
         public string ElectricCar { get; set; }
         [BsonElement]
-        public int Available { get; set; }
+        public bool Available { get; set; }
         [BsonElement]
-        public Location CarLocation { get; set; }
+        public string CarLocation { get; set; }
+        [BsonElement]
+        public string Luggages { get; set; }
+        [BsonElement]
+        public Reviews Reviews { get; set; }
+        public int Price { get; set; }
     }
-    public class Order
+    public class BookingCar
     {
         [BsonId]
-        public Object Id { get; set; }
+        public ObjectId Id { get; set; }
 
         [BsonElement]
-        public Location Pickup_Location { get; set; }
+        public string Pickup_Location { get; set; }
         [BsonElement]
-        public Location Dropoff_Location { get; set; }
+        public string Dropoff_Location { get; set; }
         [BsonElement]
-        public DateTime Pickup_Time { get; set; }
+        public DateTime Pickup_DateTime { get; set; }
         [BsonElement]
-        public DateTime Dropoff_Time { get; set; }
+        public DateTime Dropoff_DateTime { get; set; }
         [BsonElement]
         public BillingAddress BillingAddress { get; set; }
         [BsonElement]
         public Payment Payment { get; set; }
         [BsonElement]
         public MainDriver MainDriver { get; set; }
-
-    }   
+        [BsonElement]
+        public int Price { get; set; }
+        [BsonElement]
+        public Car Car { get; set; }
+    } 
 }
