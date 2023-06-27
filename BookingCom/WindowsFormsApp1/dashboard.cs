@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookingCom.pages;
+using BookingCom.pages.hoatDong;
+using WindowsFormsApp1.pages.hoatDong;
 
 namespace BookingCom
 {
@@ -30,6 +32,12 @@ namespace BookingCom
         {
             datXe datXePage = new datXe();
             datXePage.Show();
+        }
+
+        private void btnHoatDong_Click(object sender, EventArgs e)
+        {
+            HoatDong_Search hoatDong = new HoatDong_Search();
+            hoatDong.Show();
         }
     }
 }

@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnHoatDong = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -107,6 +108,17 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // btnHoatDong
+            // 
+            this.btnHoatDong.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoatDong.Location = new System.Drawing.Point(247, 357);
+            this.btnHoatDong.Name = "btnHoatDong";
+            this.btnHoatDong.Size = new System.Drawing.Size(229, 99);
+            this.btnHoatDong.TabIndex = 0;
+            this.btnHoatDong.Text = "Địa Điểm Tham Quan";
+            this.btnHoatDong.UseVisualStyleBackColor = true;
+            this.btnHoatDong.Click += new System.EventHandler(this.btnHoatDong_Click);
+            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -114,6 +126,7 @@
             this.ClientSize = new System.Drawing.Size(1086, 523);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnDatXe);
+            this.Controls.Add(this.btnHoatDong);
             this.Controls.Add(this.btnLuuTru);
             this.Name = "dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -133,6 +146,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnHoatDong;
     }
 }
 
