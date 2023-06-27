@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(luuTru_stayInfo));
             this.label_score = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_description = new System.Windows.Forms.Label();
@@ -50,10 +51,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label_address = new System.Windows.Forms.Label();
             this.label_header_review = new System.Windows.Forms.Label();
+            this.review_section = new System.Windows.Forms.Panel();
+            this.review_box = new System.Windows.Forms.GroupBox();
+            this.user_avatar = new System.Windows.Forms.PictureBox();
+            this.label_username = new System.Windows.Forms.Label();
+            this.label_date = new System.Windows.Forms.Label();
+            this.label_user_score = new System.Windows.Forms.Label();
+            this.label_content = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox_room.SuspendLayout();
             this.groupBoxesPanel.SuspendLayout();
             this.btn_reserve.SuspendLayout();
+            this.review_section.SuspendLayout();
+            this.review_box.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.user_avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label_score
@@ -323,13 +334,89 @@
             this.label_header_review.TabIndex = 0;
             this.label_header_review.Text = "Đánh giá";
             // 
+            // review_section
+            // 
+            this.review_section.Controls.Add(this.review_box);
+            this.review_section.Location = new System.Drawing.Point(24, 913);
+            this.review_section.Name = "review_section";
+            this.review_section.Size = new System.Drawing.Size(892, 281);
+            this.review_section.TabIndex = 9;
+            // 
+            // review_box
+            // 
+            this.review_box.Controls.Add(this.label_content);
+            this.review_box.Controls.Add(this.label_user_score);
+            this.review_box.Controls.Add(this.label_date);
+            this.review_box.Controls.Add(this.label_username);
+            this.review_box.Controls.Add(this.user_avatar);
+            this.review_box.Location = new System.Drawing.Point(19, 20);
+            this.review_box.Name = "review_box";
+            this.review_box.Size = new System.Drawing.Size(852, 171);
+            this.review_box.TabIndex = 0;
+            this.review_box.TabStop = false;
+            // 
+            // user_avatar
+            // 
+            this.user_avatar.Image = ((System.Drawing.Image)(resources.GetObject("user_avatar.Image")));
+            this.user_avatar.Location = new System.Drawing.Point(16, 21);
+            this.user_avatar.Name = "user_avatar";
+            this.user_avatar.Size = new System.Drawing.Size(48, 48);
+            this.user_avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.user_avatar.TabIndex = 0;
+            this.user_avatar.TabStop = false;
+            // 
+            // label_username
+            // 
+            this.label_username.BackColor = System.Drawing.Color.Transparent;
+            this.label_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label_username.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_username.Location = new System.Drawing.Point(74, 19);
+            this.label_username.Name = "label_username";
+            this.label_username.Size = new System.Drawing.Size(405, 30);
+            this.label_username.TabIndex = 2;
+            this.label_username.Text = "ROOMNAME";
+            // 
+            // label_date
+            // 
+            this.label_date.BackColor = System.Drawing.Color.Transparent;
+            this.label_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label_date.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label_date.Location = new System.Drawing.Point(74, 46);
+            this.label_date.Name = "label_date";
+            this.label_date.Size = new System.Drawing.Size(405, 30);
+            this.label_date.TabIndex = 2;
+            this.label_date.Text = "date";
+            // 
+            // label_user_score
+            // 
+            this.label_user_score.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label_user_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label_user_score.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label_user_score.Location = new System.Drawing.Point(793, 21);
+            this.label_user_score.Name = "label_user_score";
+            this.label_user_score.Size = new System.Drawing.Size(44, 44);
+            this.label_user_score.TabIndex = 6;
+            this.label_user_score.Text = "9.9";
+            this.label_user_score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_content
+            // 
+            this.label_content.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_content.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_content.Location = new System.Drawing.Point(13, 83);
+            this.label_content.Name = "label_content";
+            this.label_content.Size = new System.Drawing.Size(824, 63);
+            this.label_content.TabIndex = 7;
+            this.label_content.Text = "review content";
+            // 
             // luuTru_stayInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1415, 1026);
+            this.ClientSize = new System.Drawing.Size(1415, 1055);
+            this.Controls.Add(this.review_section);
             this.Controls.Add(this.btn_reserve);
             this.Controls.Add(this.groupBoxesPanel);
             this.Controls.Add(this.label_score);
@@ -349,6 +436,9 @@
             this.groupBoxesPanel.ResumeLayout(false);
             this.btn_reserve.ResumeLayout(false);
             this.btn_reserve.PerformLayout();
+            this.review_section.ResumeLayout(false);
+            this.review_box.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.user_avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,5 +467,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_address;
         private System.Windows.Forms.Label label_header_review;
+        private System.Windows.Forms.Panel review_section;
+        private System.Windows.Forms.GroupBox review_box;
+        private System.Windows.Forms.PictureBox user_avatar;
+        private System.Windows.Forms.Label label_date;
+        private System.Windows.Forms.Label label_username;
+        private System.Windows.Forms.Label label_content;
+        private System.Windows.Forms.Label label_user_score;
     }
 }
