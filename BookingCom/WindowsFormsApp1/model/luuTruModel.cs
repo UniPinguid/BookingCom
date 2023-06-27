@@ -134,4 +134,32 @@ namespace BookingCom.model
         [BsonElement("request")]
         public string SpecialRequests { get; set; }
     }
+
+    public class Review
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("_id")]
+        public ObjectId Id { get; set; }
+
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("stayId")]
+        public ObjectId StayId { get; set; }
+
+
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("userId")]
+        public ObjectId UserId { get; set; }
+
+        [BsonElement("content")]
+        public string Content { get; set; }
+
+        [BsonElement("score")]
+        public double Score { get; set; }
+
+        [BsonElement("date")]
+        [BsonRepresentation(BsonType.Document)]
+        public DateTime Date { get; set; }
+    }
 }

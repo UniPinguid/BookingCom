@@ -79,6 +79,7 @@ namespace BookingCom.pages
 
             positioning();
             DisplayRoomData(stayId);
+            DisplayReviewData(stayId);
         }
 
         void positioning()
@@ -91,6 +92,8 @@ namespace BookingCom.pages
             btn_reserve.Location = new Point(btn_reserve.Location.X, btn_reserve.Location.Y + height);
 
             label_header_review.Location = new Point(label_header_review.Location.X, label_header_review.Location.Y + height);
+
+            review_section.Location = new Point(review_section.Location.X, review_section.Location.Y + height);
         }
 
         public void DisplayRoomData(ObjectId stayId)
@@ -184,6 +187,70 @@ namespace BookingCom.pages
 
                 // Update the Y-coordinate position for the next GroupBox
                 groupBoxY += 150;
+            }
+        }
+
+        public void DisplayReviewData(ObjectId stayId)
+        {
+            // Assuming you have a MongoDB collection for "room" models
+            IMongoCollection<Review> roomCollection = db.GetCollection<Review>("review");
+
+            // Create a filter to match rooms with the specified stay ID
+            var filter = Builders<Review>.Filter.Eq("stayId", stayId);
+
+            // Retrieve the room data for the specific stay
+            var reviewData = roomCollection.Find(filter).ToList();
+
+            // Clear existing GroupBoxes before populating new ones
+            review_section.Controls.Clear();
+
+            int groupBoxY = review_box.Location.Y;
+
+            // Display the room data on the page
+            foreach (var review in reviewData)
+            {
+                GroupBox groupBox = new GroupBox();
+
+                // Set the properties of the GroupBox
+                groupBox.Size = review_box.Size;
+                groupBox.Location = new Point(review_box.Location.X, groupBoxY);
+                groupBox.Name = review.Id.ToString();
+
+                Label label_username = new Label();
+                label_username.Text = review.UserId.ToString();
+                luuTru.cloneLabel("label_username", label_username, review_box);
+
+                Label label_date = new Label();
+                label_date.Text = review.Date.ToString();
+                luuTru.cloneLabel("label_date", label_date, review_box);
+
+                Label label_user_score = new Label();
+                label_user_score.Text = review.Score.ToString();
+                luuTru.cloneLabel("label_user_score", label_user_score, review_box);
+
+                Label label_content = new Label();
+                label_content.Text = review.Content;
+                luuTru.cloneLabel("label_content", label_content, review_box);
+
+                PictureBox userAvatar = new PictureBox();
+                userAvatar.Image = user_avatar.Image;
+                userAvatar.Location = new Point(user_avatar.Location.X, user_avatar.Location.Y);
+                userAvatar.Size = new Size(40, 40);
+                userAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                // Add the labels to the GroupBox
+                groupBox.Controls.Add(label_username);
+                groupBox.Controls.Add(label_date);
+                groupBox.Controls.Add(label_user_score);
+                groupBox.Controls.Add(label_content);
+                groupBox.Controls.Add(userAvatar);
+
+                // Add the cloned GroupBox to the panel or container
+                review_section.Controls.Add(groupBox);
+
+                // Update the Y-coordinate position for the next GroupBox
+                groupBoxY += 150;
+                review_section.Size = new Size(review_section.Width, review_section.Height + 100);
             }
         }
 
